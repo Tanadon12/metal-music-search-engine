@@ -17,28 +17,7 @@ Kibana: A data visualization tool for exploring Elasticsearch data.
 HTML/CSS/JavaScript: For building the front-end interface.
 Python: Core language for server-side logic and data handling.
 
-
-IR_WEBSITE/
-│
-├── static/                 # Static files (CSS, images, JS)
-│   ├── home.css
-│   ├── script.js
-│   └── photo/              # Images for banners and UI
-│
-├── templates/              # HTML templates
-│   ├── home.html           # Home page
-│   ├── search.html         # Search results page
-│
-├── clean_data.py           # Script for cleaning and processing song data
-├── elasticsearch_loader.py # Script for loading data into Elasticsearch
-├── music_data_collector.py # Script to collect song data from APIs
-├── search_app.py           # Flask application for the search engine
-│
-├── songs.json              # Original song data in JSON format
-├── songs-bulk.ndjson       # NDJSON file for bulk loading into Elasticsearch
-├── updated_songs.ndjson    # Cleaned and updated NDJSON file
-│
-└── README.md     
+IR_WEBSITE/ ├── static/ # Static files (CSS, images, JS) │ ├── home.css # Main CSS file for the website │ ├── script.js # JavaScript for the website │ └── photo/ # Images for banners and UI ├── templates/ # HTML templates │ ├── home.html # Home page │ └── search.html # Search results page ├── clean_data.py # Script for cleaning and processing song data ├── elasticsearch_loader.py # Script for loading data into Elasticsearch ├── music_data_collector.py # Script to collect song data from APIs ├── search_app.py # Flask application for the search engine ├── songs.json # Original song data in JSON format ├── songs-bulk.ndjson # NDJSON file for bulk loading into Elasticsearch ├── updated_songs.ndjson # Cleaned and updated NDJSON file └── README.md # README file explaining the project
 
 Installation
 Prerequisites
