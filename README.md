@@ -18,23 +18,8 @@ HTML/CSS/JavaScript: For building the front-end interface.
 Python: Core language for server-side logic and data handling.
 
 
-IR_WEBSITE/
-├── static/  # Static files (CSS, images, JS)
-│   ├── home.css
-│   ├── script.js
-│   └── photo/  # Images for banners and UI
-├── templates/  # HTML templates
-│   ├── home.html  # Home page
-│   └── search.html  # Search results page
-├── scripts/  # Python scripts
-│   ├── clean_data.py  # Clean and process song data
-│   ├── elasticsearch_loader.py  # Load data into Elasticsearch
-│   ├── music_data_collector.py  # Collect song data from APIs
-│   └── search_app.py  # Flask application for search engine
-├── songs.json  # Original song data in JSON format
-├── songs-bulk.ndjson  # NDJSON file for bulk loading into Elasticsearch
-├── updated_songs.ndjson  # Cleaned and updated NDJSON file
-└── README.md
+![image](https://github.com/user-attachments/assets/7182c4c3-2c5e-4e58-b3c2-4d4564a47491)
+
 
 Installation
 Prerequisites
