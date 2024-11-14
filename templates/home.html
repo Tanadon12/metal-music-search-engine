@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metal Music Search Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+
+<div class="top-banner">
+    <div class="slides">
+        <img src="{{ url_for('static', filename='photo/Top2.jpg') }}" alt="Slide 1">
+        <img src="{{ url_for('static', filename='photo/asdasdasda.png') }}" alt="Slide 2">
+        <img src="{{ url_for('static', filename='photo/23055.jpg') }}" alt="Slide 3">
+    </div>
+</div>
+
+<div class="container">
+    <div class="side-banner left">
+        <img src="{{ url_for('static', filename='photo/Left.jpg') }}" alt="Left Banner">
+    </div>
+
+    <div class="content">
+        <h1>Metal Music Search</h1>
+        <p>Discover New Metal Song.</p>
+    <div class="search-box">
+    <form action="/search" method="GET">
+        <input type="text" placeholder="Search for metal music..." name="keyword" id="search-input">
+        <button type="submit">Search</button>
+    </form>
+    </div>
+
+
+    <div class="side-banner right">
+        <img src="{{ url_for('static', filename='photo/Right.jpg') }}" alt="Right Banner">
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
