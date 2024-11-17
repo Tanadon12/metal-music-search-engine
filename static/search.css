@@ -1,0 +1,101 @@
+/* Search Results Page Custom CSS */
+
+/* Body styling */
+body {
+    background-color: #000000; 
+    color: #e0e0e0; 
+    font-family: 'PT Serif', serif; 
+}
+
+/* Header styling */
+h1 {
+    color: #e60000; 
+    font-family: 'Metal Mania', cursive; 
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.navbar-brand{
+    font-family: 'Metal Mania', cursive; 
+}
+/* Result items styling */
+.result-item {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #e60000;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.7); 
+}
+
+.result-item h3 {
+    color: #e60000;
+    font-size: 1.5rem;
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: 1px solid #555555;
+}
+
+.modal-footer {
+    border-top: 1px solid #555555;
+}
+
+.modal-title {
+    color: #e60000;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Scrollable lyrics container */
+.modal-body h5 {
+    color: #e60000;
+}
+
+.modal-body pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    background-color: transparent;
+    color: #e0e0e0;
+}
+
+/* Pagination Styling */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-item.active .page-link {
+    background-color: #e60000;
+    border-color: #e60000;
+}
+
+.page-link {
+    color: #fff;
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+.page-item:hover .page-link {
+    background-color: #e60000;
+    border-color: #e60000;
+}
