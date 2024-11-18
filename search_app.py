@@ -38,8 +38,8 @@ def search():
                         'multi_match': {
                             'query': keyword,
                             'fields': [
-                                'Song Name^5',  # Boost song name relevance
-                                'Artist/Band^3',
+                                'Song Name^4',  # Boost song name relevance
+                                'Artist/Band^2',
                                 'Album Name',
                                 'Lyrics'
                             ],
@@ -47,12 +47,20 @@ def search():
                             'operator': 'or'
                         }
                     },
+                    {   # For exact match in Lyrics field (boosted to prioritize full match)
+                    'match_phrase': {
+                        'Lyrics': {
+                            'query': keyword,
+                            'boost': 3  # Higher boost for full phrase match in Lyrics
+                        }
+                    }
+                    },
                     {   # For partial match or fuzzy matching (slightly misspelled)
                         'multi_match': {
                             'query': keyword,
                             'fields': [
                                 'Song Name^2',
-                                'Artist/Band^2',
+                                'Artist/Band',
                                 'Lyrics'
                             ],
                             'type': 'phrase_prefix'  # Partial match with prefix
@@ -63,8 +71,7 @@ def search():
                             'query': keyword,
                             'fields': [
                                 'Song Name',
-                                'Artist/Band',
-                                'Lyrics'
+                                'Artist/Band'
                             ],
                             'fuzziness': 2,  # Allow up to 2 character changes
                             'prefix_length': 1,  # Only apply fuzziness after 1st character
