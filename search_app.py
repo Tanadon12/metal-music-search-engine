@@ -38,8 +38,8 @@ def search():
                         'multi_match': {
                             'query': keyword,
                             'fields': [
-                                'Song Name^3',  # Boost song name relevance
-                                'Artist/Band^2',
+                                'Song Name^5',  # Boost song name relevance
+                                'Artist/Band^3',
                                 'Album Name',
                                 'Lyrics'
                             ],
@@ -52,7 +52,7 @@ def search():
                             'query': keyword,
                             'fields': [
                                 'Song Name^2',
-                                'Artist/Band',
+                                'Artist/Band^2',
                                 'Lyrics'
                             ],
                             'type': 'phrase_prefix'  # Partial match with prefix
@@ -63,13 +63,17 @@ def search():
                             'query': keyword,
                             'fields': [
                                 'Song Name',
+                                'Artist/Band',
                                 'Lyrics'
                             ],
-                            'fuzziness': 'AUTO'
+                            'fuzziness': 2,  # Allow up to 2 character changes
+                            'prefix_length': 1,  # Only apply fuzziness after 1st character
+                            'boost': 1  # Lower boost for fuzzy matches
                         }
                     }
                 ],
-                'minimum_should_match': 1  # Ensure at least one match
+                'minimum_should_match': 1,  # Ensure at least one match
+                'boost':2
             }
         },
         'sort': [  # Ranking: sort by relevance first, then by popularity if available
@@ -91,9 +95,14 @@ def search():
             'Lyrics': doc['_source']['Lyrics']
         } for doc in res['hits']['hits']
     ]
+    results = [hit["_source"] for hit in res['hits']['hits']]
+    for hit in res['hits']['hits']:
+            print(hit["_source"]["Song Name"], hit["_score"])
+            print()
     page_total = math.ceil(res['hits']['total']['value'] / page_size)
 
     return render_template('search.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total)
 
-
+if __name__ == "__main__":
+    app.run()
 
