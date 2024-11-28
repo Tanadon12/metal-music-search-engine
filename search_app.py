@@ -26,7 +26,8 @@ def search():
         page_no = int(request.args.get('page'))
     else:
         page_no = 1
-
+    min_word_count = 3  # Set minimum word count for applying match_phrase
+    is_long_phrase = len(keyword.split()) >= min_word_count
     # Build the search body
     body = {
         'size': page_size,
@@ -47,14 +48,16 @@ def search():
                             'operator': 'or'
                         }
                     },
-                    {   # For exact match in Lyrics field (boosted to prioritize full match)
-                    'match_phrase': {
-                        'Lyrics': {
-                            'query': keyword,
-                            'boost': 3  # Higher boost for full phrase match in Lyrics
+                    *(
+                        [{
+                        'match_phrase': {
+                            'Lyrics': {
+                                'query': keyword,
+                                'boost': 3  # Higher boost for full phrase match in Lyrics
+                            }
                         }
-                    }
-                    },
+                        }] if is_long_phrase else []
+                    ),
                     {   # For partial match or fuzzy matching (slightly misspelled)
                         'multi_match': {
                             'query': keyword,
